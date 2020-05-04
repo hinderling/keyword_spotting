@@ -20,3 +20,9 @@ The dataset is `WashingtonDB` and contains letters of George Washington from the
     
 * `/task/Keywords.txt` Words that are contained in the training an validation set 
 
+
+
+Helpful links:
+https://towardsdatascience.com/dynamic-time-warping-3933f25fcdd
+https://stackoverflow.com/questions/22588074/polygon-crop-clip-using-python-pil
+https://machinelearningmastery.com/roc-curves-and-precision-recall-curves-for-classification-in-python/
