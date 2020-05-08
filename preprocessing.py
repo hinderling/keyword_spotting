@@ -60,6 +60,6 @@ for page,cutout in zip(pages,cutouts):
         path = "./output/"+page_number        
         if not os.path.exists(path):
             os.mkdir(path)
-        img.save(path+"/"+filename+".jpg")
+        img.save(path+"/"+filename+".png") #jpg interpolates / has floating point issues
     print("Done processing scan "+ os.path.basename(page))    
         
