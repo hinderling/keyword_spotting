@@ -1,0 +1,68 @@
+import matplotlib.pyplot as plt
+
+
+def read_transcription():
+    with open("transcription.txt", "r") as all_words:
+        dic={}
+        for line in all_words:
+            index=line[0:9] #index has always same length=9
+            word=line[10:].rstrip("\n")
+            dic[index]=word
+    return dic
+
+def precision_recall_calculation(all_words_dic, result_indeces, keyword):
+    TP=0
+    FP=0
+    FN=0
+    for key in all_words_dic:
+        if key in result_indeces:
+            if all_words_dic[key] == keyword:
+                TP += 1
+            else:
+                FP += 1
+        else:
+            if all_words_dic[key]==keyword:
+                FN+=1
+    precision=TP/(TP+FP)
+    recall=TP/(TP+FN)
+    return (precision, recall)
+
+
+def find_threshold_range(all_words_dic, result_indeces, distances, keyword):
+    # threshold so dass keine FP gibt bis so dass es keine FN gibt
+    count = -1
+    for index in result_indeces:
+        count += 1
+        if all_words_dic[index] == keyword:
+            lower_threshold = distances[count] #threshold to achieve 100% precision
+    for index in result_indeces[::-1]:
+        if all_words_dic[index]!=keyword:
+            upper_threshold=distances[count-1] #threshold to achieve 100% recall
+            count-=1
+    return (lower_threshold, upper_threshold)
+
+
+#result I get from others: indeces and the keyword and the distance
+#used for trying:
+indeces=['270-01-02', '270-03-03','270-09-01']
+distances=[111,234,532]
+keyword='L-e-t-t-e-r-s-s_cm'
+
+#main
+dic=read_transcription()
+lower_threshold, upper_threshold=find_threshold_range(dic,indeces, distances,keyword)
+distance_range=distances[distances.index(lower_threshold):distances.index(upper_threshold)+1]
+count=0
+precisions=[]
+recalls=[]
+for distance in distance_range:
+    count+=1
+    precision,recall= precision_recall_calculation(dic,indeces[:count],keyword)
+    precisions.append(precision)
+    recalls.append(recall)
+
+plt.plot(precisions, recalls, marker='o', markersize=3, color="red")
+plt.xlabel("precision")
+plt.ylabel("recall")
+plt.title("Recall-Precision curve/AP")
+plt.show()
