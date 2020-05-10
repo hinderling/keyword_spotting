@@ -15,7 +15,6 @@ def main():
 
     keywords = ['273-23-05', '270-09-01', '271-19-02', '272-15-03', '270-17-05', '273-03-04', '270-23-01', '270-17-03', '272-29-08', '275-25-04', '271-04-03', '270-17-02', '274-33-01', '277-23-06', '279-16-08', '270-31-01', '270-01-05', '278-03-04', '276-02-02', '273-09-03', '275-14-06', '272-29-07', '270-16-02', '271-11-04', '270-01-03', '270-23-06', '270-15-01', '276-21-03', '275-04-07', '271-04-08', '277-15-05', '270-27-03', '277-19-04', '273-27-07', '271-16-02', '270-29-02', '279-21-05', '274-24-01', '277-14-03', '274-26-03', '274-06-01', '271-04-07', '273-23-02', '270-18-01', '276-12-01', '270-06-01', '270-14-02', '278-21-09', '271-15-04', '274-12-07', '271-12-01', '278-11-04', '272-20-02', '272-34-05', '271-31-03', '275-05-05', '270-24-08', '274-27-06', '270-08-07', '273-05-02', '275-23-03', '274-14-08', '275-35-01', '272-16-07', '277-09-07', '271-17-09', '277-22-07', '271-30-05', '270-08-02', '270-18-03', '272-19-01', '275-15-04', '270-33-04', '273-04-01', '273-26-01', '272-17-05', '274-25-01', '270-28-02', '270-30-05', '270-27-07', '272-35-02', '271-17-07', '271-05-04', '271-32-03', '270-21-05', '274-26-06', '271-10-02', '272-22-05', '275-27-05', '272-26-02', '279-18-06', '270-25-07', '272-07-02', '274-19-05', '271-05-06', '270-04-08', '270-12-03', '271-10-04', '271-10-08', '274-14-01', '270-08-01', '272-12-01', '277-25-03', '274-10-08', '273-28-01', '276-05-06', '273-31-06']
 
-
     valid_pages = get_valid_pages()
     dic = read_transcription(valid_pages)
     entire_dic=read_whole_transcription()
@@ -47,14 +46,14 @@ def main():
     precisions = []
     recalls = []
     TP,FP, FN=initial_TP_FP_FN_calculation(dic, indeces[:count+1], corresponding_keywords[:count+1])
-    print(TP, FP, FN)
+    print("values",TP, FP, FN)
     precision, recall=precision_recall_calc(TP,FP,FN)
     precisions.append(precision)
     recalls.append(recall)
     for distance in range(len(distance_range)):
         count += 1
         TP,FP,FN = TP_FP_FN_calculation(dic, indeces[count], corresponding_keywords[count], TP,FP, FN)
-        print(TP, FP, FN)
+        print("values2",TP, FP, FN)
         precision, recall=precision_recall_calc(TP,FP,FN)
         precisions.append(precision)
         recalls.append(recall)
@@ -139,8 +138,11 @@ def read_whole_transcription():
 def initial_TP_FP_FN_calculation(all_words_dic, result_indeces, keywords):
     TP=0
     FP=0
+    FN=0
     nr_of_features=6
-    FN=len(all_words_dic)*nr_of_features
+    for key in all_words_dic:
+        if all_words_dic[key] in keywords:
+            FN+=nr_of_features #nr of keywords to find
     for key in result_indeces:
         index=result_indeces.index(key)
         if all_words_dic[key]==keywords[index]:
@@ -196,4 +198,3 @@ def find_threshold_range(all_words_dic, result_indeces, distances, keywords):
 
 if __name__ == "__main__":
     main()
-
