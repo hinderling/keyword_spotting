@@ -18,12 +18,7 @@ def main():
 
     valid_pages = get_valid_pages()
     dic = read_transcription(valid_pages)
-    with open("transcription.txt", "r") as all_words:
-        entire_dic = {}
-        for line in all_words:
-                index = line[0:9]  # index has always same length=9
-                word = line[10:].rstrip("\n")
-                entire_dic[index] = word
+    entire_dic=read_whole_transcription()
 
     corresponding_keywords=[]
     indeces = []
@@ -47,17 +42,24 @@ def main():
     print(distances,indeces,corresponding_keywords)
     lower_threshold, upper_threshold = find_threshold_range(dic, indeces, distances, corresponding_keywords)
 
-
-
     distance_range = distances[distances.index(lower_threshold):distances.index(upper_threshold) + 1]
     count = distances.index(lower_threshold)
     precisions = []
     recalls = []
-    for distance in distance_range:
+    TP,FP, FN=initial_TP_FP_FN_calculation(dic, indeces[:count+1], corresponding_keywords[:count+1])
+    print(TP, FP, FN)
+    precision, recall=precision_recall_calc(TP,FP,FN)
+    precisions.append(precision)
+    recalls.append(recall)
+    for distance in range(len(distance_range)):
         count += 1
-        precision, recall = precision_recall_calculation(dic, indeces[:count], corresponding_keywords[:count])
+        TP,FP,FN = TP_FP_FN_calculation(dic, indeces[count], corresponding_keywords[count], TP,FP, FN)
+        print(TP, FP, FN)
+        precision, recall=precision_recall_calc(TP,FP,FN)
         precisions.append(precision)
         recalls.append(recall)
+
+
 
 
     print(precisions, recalls)
@@ -78,6 +80,7 @@ def main():
     plt.ylabel("precision")
     plt.title("Recall-Precision curve/AP")
     plt.show()
+
 
 
 
@@ -124,30 +127,46 @@ def read_transcription(valid_pages):
                 dic[index]=word
     return dic
 
-def precision_recall_calculation(all_words_dic, result_indeces, keywords):
+def read_whole_transcription():
+    with open("transcription.txt", "r") as all_words:
+        dic={}
+        for line in all_words:
+            index=line[0:9] #index has always same length=9
+            word=line[10:].rstrip("\n")
+            dic[index]=word
+    return dic
+
+def initial_TP_FP_FN_calculation(all_words_dic, result_indeces, keywords):
     TP=0
     FP=0
-    FN=0
-    for key in all_words_dic:
-        if key in result_indeces:
-            index=result_indeces.index(key)
-            if all_words_dic[key] == keywords[index]:
-                TP += 1
-            else:
-                FP += 1
+    nr_of_features=6
+    FN=len(all_words_dic)*nr_of_features
+    for key in result_indeces:
+        index=result_indeces.index(key)
+        if all_words_dic[key]==keywords[index]:
+            TP+=1
+            FN-=1
         else:
-            for keyword in keywords:
-                if all_words_dic[key]==keyword:
-                    FN+=1
-                    break #terminate the innermost loop (because keywords actually contains the same keyword maaany
-                    #times; they all would increase FN by 1 otherwise
-    if TP==0: #necessary to avoid division by zero in recall calculation; it might be that the searched keyword is not
-        #in the validation set
-        precision=1
-        recall=0
+            FP+=1
+    return (TP, FP, FN)
+
+def TP_FP_FN_calculation(all_words_dic, result_index, keyword, TP, FP, FN):
+    if all_words_dic[result_index] == keyword:
+        TP += 1
+        FN-=1
     else:
-        precision=TP/(TP+FP)
-        recall=TP/(TP+FN)
+        FP += 1
+    return (TP, FP, FN)
+
+def precision_recall_calc(TP, FP, FN):
+    if TP == 0:  # necessary to avoid division by zero in recall calculation; it might be that the searched keyword is not
+        # in the validation set
+        precision = 1
+        recall = 0
+    else:
+        precision = TP / (TP + FP)
+        recall = TP / (TP + FN)
+        print("recall",recall)
     return (precision, recall)
 
 
@@ -177,3 +196,4 @@ def find_threshold_range(all_words_dic, result_indeces, distances, keywords):
 
 if __name__ == "__main__":
     main()
+
