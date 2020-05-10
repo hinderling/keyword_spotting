@@ -45,7 +45,7 @@ def main():
     count = distances.index(lower_threshold)
     precisions = []
     recalls = []
-    TP,FP, FN=initial_TP_FP_FN_calculation(dic, indeces[:count+1], corresponding_keywords[:count+1])
+    TP,FP, FN=initial_TP_FP_FN_calculation(dic, indeces[:count+1], corresponding_keywords[:count+1], corresponding_keywords)
     print("values",TP, FP, FN)
     precision, recall=precision_recall_calc(TP,FP,FN)
     precisions.append(precision)
@@ -135,13 +135,13 @@ def read_whole_transcription():
             dic[index]=word
     return dic
 
-def initial_TP_FP_FN_calculation(all_words_dic, result_indeces, keywords):
+def initial_TP_FP_FN_calculation(all_words_dic, result_indeces, keywords, all_keywords):
     TP=0
     FP=0
     FN=0
     nr_of_features=6
     for key in all_words_dic:
-        if all_words_dic[key] in keywords:
+        if all_words_dic[key] in all_keywords:
             FN+=nr_of_features #nr of keywords to find
     for key in result_indeces:
         index=result_indeces.index(key)
