@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 def main():
     ########## load the stored data ###########
-    dictionary_file = open('dictPickle', 'rb')  # reading mode
+    dictionary_file = open('dictPickle.bin', 'rb')  # reading mode
     feature_dict = pickle.load(dictionary_file)
     dictionary_file.close()
 
