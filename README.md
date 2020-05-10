@@ -62,3 +62,20 @@ We then cut out the word from the scanned image using the polygon binding box, a
 To normalize the image sizes we calculated the mean width (232.29px) and height (96.84px) of all resulting word images. We decided to fix the height of the words but keep the original width, as the DTW can take care of this. If we look at the histograms. We chose 120px as the height as it contains a large part of the image set and the outliers won't get squeezed too much.
 
 ![](./report_figures/preprocessing/hist_heights.png)
+
+# Calculating the features
+
+The feature calculation is implemented in `store_features.py`. For every word we calculate the following features: 
+
+* UC: upper contour
+* LC: lower contour
+* b/w-ratio: ratio of white to black pixels
+* b/w ratio between UC/LC: b/w ratio only considering the pixels between UC and LC
+* center of black pixels (center of mass)
+* transitions: transitions from white to black
+
+The results are stored as a dict and dumped in `dictPickle.bin` The resulting file size for 3700 words is 73MB, the runtime is quite short, under 5 minutes. 
+
+# DTW and evaluation
+
+The `dictPickle.bin` file is loaded again into `calculate_dtw.py`, where the DTW distance from the first occurence of every word in the `keywords.txt`file in the validation set to all images in the test set is calculated. This distance is calculated for all of the six features. 
