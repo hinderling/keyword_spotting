@@ -78,4 +78,4 @@ The results are stored as a dict and dumped in `dictPickle.bin` The resulting fi
 
 # DTW and evaluation
 
-The `dictPickle.bin` file is loaded again into `calculate_dtw.py`, where the DTW distance from the first occurence of every word in the `keywords.txt`file in the validation set to all images in the test set is calculated. This distance is calculated for all of the six features. 
+The `dictPickle.bin` file is loaded again into `dtw_and_evaluation.py`, where the DTW distance from the first occurence of every word in the `keywords.txt`file in the validation set to all images in the test set is calculated. This distance is calculated for all of the six features. 
