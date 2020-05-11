@@ -76,6 +76,10 @@ The feature calculation is implemented in `store_features.py`. For every word we
 
 The results are stored as a dict and dumped in `dictPickle.bin` The resulting file size for 3700 words is 73MB, the runtime is quite short, under 5 minutes. 
 
+# Classifier
+
+We decided to do a simple classifier that consists of a sorted List and a treshold value K. The list 
+
 # DTW and evaluation
 
 The `dictPickle.bin` file is loaded again into `dtw_and_evaluation.py`, where the DTW distance from the first occurence of every word in the `keywords.txt`file in the validation set to all images in the test set is calculated. This distance is calculated for all of the six features. 
