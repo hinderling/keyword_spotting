@@ -113,7 +113,7 @@ This test result also didn't seem very promising, as no significant improvement 
 
 # Reasons for poor Performance
 
-possible reasons for the poor performance could be the lack of normalisation of the cut-out images. Only changes made were to make each of rectangular shape of size 120xLength. Another problem is that we are not sure if our DTW is calculating the distances as intended. We tried different parameters for the sakoe-chiba band but yielded similar results. We also run it without a restrictional band at all without improvements.
+Possible reasons for the poor performance could be the lack of normalisation of the cut-out images. Only changes made were to make each of rectangular shape of size 120xLength. Another problem is that we are not sure if our DTW is calculating the distances as intended. We tried different parameters for the sakoe-chiba band but yielded similar results. We also run it without a restrictional band at all without improvements.
 
 Something we also realised is that, our programm sees a point or a comma after/infront of the word as a false hit. By allowing such hits to be correct, a higher precision should be achievable.
 
