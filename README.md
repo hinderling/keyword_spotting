@@ -103,13 +103,9 @@ Down below are the results for each feature.
  ![](./report_figures/results/output_AP_black_center.png) | ![](./report_figures/results/output_AP_bw_ratio.png)
  ![](./report_figures/results/output_AP_bw_ratio_UC_to_LC.png) | ![](./report_figures/results/output_AP_transitions.png)
 
-As we can see in our Feature-Curves, there is basically no middle ground for our Classifier, extremely high K values are needed to get a high Recall value. At the same time an extremely low K value is needed to mantain any sort of precision. This basically means, that we can't really properly detect any true matches using only one feature.
+As we can see in our Feature-Curves, there is basically no middle ground for our Classifier, extremely high K values are needed to get a high Recall value. At the same time an extremely low K value is needed to maintain any sort of precision. This basically means, that we can't really properly detect any true matches using only one feature.
 
-We also tried to merge and normalise our features to see if the combination of our features nets different results, which you can see below:
-
-![](./report_figures/results/allCombined.png)
-
-This test result also didn't seem very promising, as no significant improvement could be achieved.
+The next step would be to combine the features to obtain one single curve which is more accureate. Howerver we failed at this point because as it is, the values of our feature vectors don't cover the same range. This could be solved by simply normalizing them but the vectors also don't have the same length so we can not add them up (maybe a linear interpolation could help here though). However we still were not convinced since some features obviously correlate and thus their effects could add up or cancel each other out in a way we can not forsee. So we decided to keep the features separated till the end and maybe then decide according the ranking of word for every feature. But here as well we have the same problem: How do we weight the different high scores? At this point we just stopped.
 
 # Reasons for poor Performance
 
