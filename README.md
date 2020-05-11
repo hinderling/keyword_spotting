@@ -114,6 +114,11 @@ This test result also didn't seem very promising, as no significant improvement 
 # Reasons for poor Performance
 
 possible reasons for the poor performance could be the lack of normalisation of the cut-out images. Only changes made were to make each of rectangular shape of size 120xLength. Another problem is that we are not sure if our DTW is calculating the distances as intended. We tried different parameters for the sakoe-chiba band but yielded similar results. We also run it without a restrictional band at all without improvements.
-Something we also realised is that, our programm sees a point or a comma after/infront of the word as a false hit. By allowing such hits to be correct, a higher precision should be achievable.
-For this project we did confuse each other by not meeting up enough early on. And assuring that everyone is on the same page. This caused confusion further down the line.
 
+Something we also realised is that, our programm sees a point or a comma after/infront of the word as a false hit. By allowing such hits to be correct, a higher precision should be achievable.
+
+Another possible reason would be the chosen classifier, which seems to not be quite appropriate for the task. With more time we would probably have tried to implement some sort of KNN classifier using euclidean distances as a next step.
+
+# What we can improve
+
+This was the first "large" group project for us; which means we did run into a bunch of problems while we worked on it. Most problems were tied to us starting work quite late in the time window - which caused us to split the work too much in between people. The consequence of this was that everyone had a very narrow focus on a specific task, which turned out to be too narrow - we had trouble keeping an eye on the big picture until the last couple of zoom-meetings. At this point we had already ran out of time to make major adjustments, which would be necessary to improve our results. So next time we have a comparable project, we will put more of an emphasis on working together on each step instead of trying to piece everyone's work together in the end like a puzzle.
