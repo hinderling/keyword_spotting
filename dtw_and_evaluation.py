@@ -39,6 +39,7 @@ def main():
     corresponding_features,distances, indeces, corresponding_keywords = (list(t) for t in zip(*sorted(zip(corresponding_features,distances, indeces, corresponding_keywords))))
     nr_of_features=len(feat_names)
     nr_distances_per_feature=len(corresponding_features)/nr_of_features
+    print("nr of distances per feature", nr_distances_per_feature)
 
     feat_nr=0
     for feature in feat_names:
