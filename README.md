@@ -78,7 +78,7 @@ The results are stored as a dict and dumped in `dictPickle.bin` The resulting fi
 
 # Classifier
 
-We decided to do a simple classifier that consists of a sorted List and a treshold value K. The list 
+We decided to do a simple classifier that consists of a sorted List and a treshold value K. The list is sorted in an ascending order, and K determines the number of entries from the top, that get assigned to the class. In this case K means that the K shortest distances are going to be considered "hits" by the classifier.
 
 # DTW and evaluation
 
@@ -103,7 +103,7 @@ Down below are the results for each feature.
  ![](./report_figures/results/output_AP_black_center.png) | ![](./report_figures/results/output_AP_bw_ratio.png)
  ![](./report_figures/results/output_AP_bw_ratio_UC_to_LC.png) | ![](./report_figures/results/output_AP_transitions.png)
 
-As we can see in our Feature-Curves, there is basically no middle ground for our Classifier, extremely high K values are needed to get a high Recall value. At the same time an extremely low K value is needed to mantain any sort of precision. 
+As we can see in our Feature-Curves, there is basically no middle ground for our Classifier, extremely high K values are needed to get a high Recall value. At the same time an extremely low K value is needed to mantain any sort of precision. This basically means, that we can't really properly detect any true matches using only one feature.
 
 # Reasons for poor Performance
 
