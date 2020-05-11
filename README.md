@@ -93,13 +93,13 @@ The plot is then drawn using the maximum precision as starting point (if multipl
 
 ![](./report_figures/results/output_AP_LC.png)
 
-![](./report_figures/DTW and evaluation/output_AP UC.png)
+![](./report_figures/results/output_AP_UC.png)
 
-![](./report_figures/DTW and evaluation/output_AP black_center.png)
+![](./report_figures/results/output_AP_black_center.png)
 
-![](./report_figures/DTW and evaluation/output_AP bw_ratio.png)
+![](./report_figures/results/output_AP_bw_ratio.png)
 
-![](./report_figures/DTW and evaluation/output_AP bw_ratio_UC_to_LC.png)
+![](./report_figures/results/output_AP_bw_ratio_UC_to_LC.png)
 
-![](./report_figures/DTW and evaluation/output_AP transitions.png)
+![](./report_figures/results/output_AP_transitions.png)
 
