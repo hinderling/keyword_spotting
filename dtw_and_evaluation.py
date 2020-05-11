@@ -120,14 +120,14 @@ def get_scores_dict(keyword, feat_dic):
 
 
 def get_train_pages():
-    with open("train.txt", "r") as training_set: #data/task/train.txt
+    with open("data/task/train.txt", "r") as training_set: #data/task/train.txt
         train_pages=[]
         for line in training_set:
             train_pages.append(line.strip('\n'))
     return train_pages
 
 def read_transcription(train_pages): #data/ground_truth/transcription
-    with open("transcription.txt", "r") as all_words:
+    with open("data/ground-truth/transcription.txt", "r") as all_words:
         dic={} #the entire dic
         train_dic={}
         for line in all_words:
