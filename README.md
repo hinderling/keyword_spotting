@@ -79,3 +79,12 @@ The results are stored as a dict and dumped in `dictPickle.bin` The resulting fi
 # DTW and evaluation
 
 The `dictPickle.bin` file is loaded again into `dtw_and_evaluation.py`, where the DTW distance from the first occurence of every word in the `keywords.txt`file in the validation set to all images in the test set is calculated. This distance is calculated for all of the six features. 
+
+Then, for every feature, a list is created with all distances (ordered), one with all corresponding image labels (i.e. ordered in the same way) and with all corresponding keywords (also ordered in the same way). Those lists are used to 
+1) calculate the number of false negatives(FN), false positives (FP) and true positives (TP) in the very beginning (i.e. when only the best distance is considered as a match), and
+2) to calculate the change of the number of FN, FP and TP when an additional distance is considered as a match. More distances are considered until there are no FN anymore (i.e. we achieved a recall of 100%).
+
+The precision and recall are calculated for each step (i.e. for each number of distances considered as a match).
+
+The number of distances used to achieve the max precision and the max recall are printed.
+The plot is then drawn using the maximum precision as starting point (if multiple precisions are achieved for the same recall, only the first one is used for the plot). 
