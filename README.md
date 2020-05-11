@@ -89,7 +89,9 @@ Then, for every feature, a list is created with all distances (ordered), one wit
 The precision and recall are calculated for each step (i.e. for each number of distances considered as a match).
 
 The number of distances used to achieve the max precision and the max recall are printed.
-The plot is then drawn using the maximum precision as starting point (if multiple precisions are achieved for the same recall, only the first one is used for the plot). 
+The plot is then drawn using the maximum precision as starting point (if multiple precisions are achieved for the same recall, only the first one is used for the plot).
+
+Down below are the results for each feature.
 
 ![](./report_figures/results/output_AP_LC.png)
 
