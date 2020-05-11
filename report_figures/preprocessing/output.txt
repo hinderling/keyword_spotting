@@ -1,0 +1,14 @@
+max precision for feature UC is achieved using the 6 smallest distances
+max recall for feature UC is achieved using the 80194 smallest distances
+max precision for feature LC is achieved using the 1 smallest distances
+max recall for feature LC is achieved using the 66148 smallest distances
+max precision for feature bw_ratio is achieved using the 12 smallest distances
+max recall for feature bw_ratio is achieved using the 77419 smallest distances
+max precision for feature bw_ratio_UC_to_LC is achieved using the 14 smallest distances
+max recall for feature bw_ratio_UC_to_LC is achieved using the 67210 smallest distances
+max precision for feature black_center is achieved using the 126 smallest distances
+max recall for feature black_center is achieved using the 79348 smallest distances
+max precision for feature transitions is achieved using the 302 smallest distances
+max recall for feature transitions is achieved using the 72547 smallest distances
+
+Process finished with exit code 0
