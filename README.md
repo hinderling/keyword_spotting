@@ -105,7 +105,11 @@ Down below are the results for each feature.
 
 As we can see in our Feature-Curves, there is basically no middle ground for our Classifier, extremely high K values are needed to get a high Recall value. At the same time an extremely low K value is needed to mantain any sort of precision. This basically means, that we can't really properly detect any true matches using only one feature.
 
+We also tried to merge and normalise our features to see if the combination of our features nets different results, which you can see below:
+
 ![](./report_figures/results/allCombined.png)
+
+This test result also didn't seem very promising, as no significant improvement could be achieved.
 
 # Reasons for poor Performance
 
