@@ -85,8 +85,8 @@ def main():
         plt.plot(final_recall_list2, final_precision_list2, marker='o', markersize=3, color="red")
         plt.xlabel("recall")
         plt.ylabel("precision")
-        plt.title("Recall-Precision curve/APel" + str(feature))
-        plt.savefig("output_AP"+str(feature))
+        plt.title("Recall-Precision curve/AP " + str(feature))
+        plt.savefig("output_AP "+str(feature))
         plt.show()
 
 
