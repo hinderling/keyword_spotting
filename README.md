@@ -91,7 +91,7 @@ The precision and recall are calculated for each step (i.e. for each number of d
 The number of distances used to achieve the max precision and the max recall are printed.
 The plot is then drawn using the maximum precision as starting point (if multiple precisions are achieved for the same recall, only the first one is used for the plot). 
 
-![](./report_figures/DTW and evaluation/output_AP LC.png)
+![](./report_figures/results/output_AP_LC.png)
 
 ![](./report_figures/DTW and evaluation/output_AP UC.png)
 
