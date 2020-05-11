@@ -105,4 +105,5 @@ Down below are the results for each feature.
 
 ![](./report_figures/results/output_AP_transitions.png)
 
-Hallo Cudi
+possible reasons for the poor performance
+
