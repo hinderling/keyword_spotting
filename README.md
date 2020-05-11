@@ -93,9 +93,7 @@ The plot is then drawn using the maximum precision as starting point (if multipl
 
 Down below are the results for each feature.
 
-![](./report_figures/results/output_AP_LC.png)
-
-![](./report_figures/results/output_AP_UC.png)
+![](./report_figures/results/output_AP_LC.png) ![](./report_figures/results/output_AP_UC.png)
 
 ![](./report_figures/results/output_AP_black_center.png)
 
@@ -105,5 +103,7 @@ Down below are the results for each feature.
 
 ![](./report_figures/results/output_AP_transitions.png)
 
-possible reasons for the poor performance
+possible reasons for the poor performance could be the lack of normalisation of the cut-out images. Only changes made were to make each of rectangular shape of size 120xLength. Another problem is that we are not sure if our DTW is calculating the distances as intended. We tried different parameters for the sakoe-chiba band but yielded similar results. We also run it without a restrictional band at all without improvements.
+Something we also realised is that, our programm sees a point or a comma after/infront of the word as a false hit. By allowing such hits to be correct, a higher precision should be achievable.
+For this project we did confuse each other by not meeting up enough early on. And assuring that everyone is on the same page. This caused confusion further down the line.
 
