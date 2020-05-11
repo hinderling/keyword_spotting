@@ -64,6 +64,8 @@ def main():
             precision, recall=precision_recall_calc(TP,FP,FN)
             precisions.append(precision)
             recalls.append(recall)
+            if recall==1:
+                break
 
         print("max precision for feature",feature,"is achieved using the", precisions.index(max(precisions))+1, "smallest distances")
         print("max recall for feature", feature, "is achieved using the", recalls.index(max(recalls)) + 1,"smallest distances")
