@@ -37,7 +37,7 @@ def main():
 
   ########## pickle-dump the dict ###########
   print("dumping features in binary file...")
-  with open("dictPickle", "wb") as dictionary_file:
+  with open("dictPickle.bin", "wb") as dictionary_file:
     pickle.dump(featureDict, dictionary_file)
   print("finished dumping")
   
