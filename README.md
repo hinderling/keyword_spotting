@@ -123,6 +123,6 @@ Another possible reason would be the chosen classifier, which seems to not be qu
 
 This was the first "large" group project for us; which meant, that we did run into a bunch of problems while we worked on it. 
 
-Most problems were tied to us starting work quite late in the time window - which caused us to split the work too much in between people. The consequence of this was that everyone had a very narrow focus on a specific task, which turned out to be too narrow - we had trouble keeping an eye on the big picture until the last couple of zoom-meetings. At this point we had already ran out of time to make major adjustments, which would be necessary to improve our results. 
+Most problems were tied to us splitting the work too much in between people. The consequence of this was that everyone had a very narrow focus on a specific task, which turned out to be too narrow - we had trouble keeping an eye on the big picture until the last couple of zoom-meetings. At this point we had already ran out of time to make major adjustments, which would be necessary to improve our results. 
 
 So next time we have a comparable project, we will put more of an emphasis on working on each step as a group, instead of trying to piece everyone's work together in the end like a puzzle.
