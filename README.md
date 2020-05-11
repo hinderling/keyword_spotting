@@ -93,9 +93,9 @@ The plot is then drawn using the maximum precision as starting point (if multipl
 
 Down below are the results for each feature.
 
-:----------------------------------------------:|:----------------------------------------------:
+------------------------------------------------|----------------------------------------------
 ![](./report_figures/results/output_AP_LC.png)  |  ![](./report_figures/results/output_AP_UC.png)
-
+------------------------------------------------|-----------------------------------------------
 
 ![](./report_figures/results/output_AP_black_center.png)
 
