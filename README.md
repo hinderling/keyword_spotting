@@ -76,6 +76,10 @@ The feature calculation is implemented in `store_features.py`. For every word we
 
 The results are stored as a dict and dumped in `dictPickle.bin` The resulting file size for 3700 words is 73MB, the runtime is quite short, under 5 minutes. 
 
+# Classifier
+
+We decided to do a simple classifier that consists of a sorted List and a treshold value K. The list 
+
 # DTW and evaluation
 
 The `dictPickle.bin` file is loaded again into `dtw_and_evaluation.py`, where the DTW distance from the first occurence of every word in the `keywords.txt`file in the validation set to all images in the test set is calculated. This distance is calculated for all of the six features. 
@@ -98,6 +102,10 @@ Down below are the results for each feature.
 -----------------------------------------------|--------------------------------------------------
  ![](./report_figures/results/output_AP_black_center.png) | ![](./report_figures/results/output_AP_bw_ratio.png)
  ![](./report_figures/results/output_AP_bw_ratio_UC_to_LC.png) | ![](./report_figures/results/output_AP_transitions.png)
+
+As we can see in our Feature-Curves, there is basically no middle ground for our Classifier, extremely high K values are needed to get a high Recall value. At the same time an extremely low K value is needed to mantain any sort of precision. 
+
+# Reasons for poor Performance
 
 possible reasons for the poor performance could be the lack of normalisation of the cut-out images. Only changes made were to make each of rectangular shape of size 120xLength. Another problem is that we are not sure if our DTW is calculating the distances as intended. We tried different parameters for the sakoe-chiba band but yielded similar results. We also run it without a restrictional band at all without improvements.
 Something we also realised is that, our programm sees a point or a comma after/infront of the word as a false hit. By allowing such hits to be correct, a higher precision should be achievable.
