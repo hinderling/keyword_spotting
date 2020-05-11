@@ -96,8 +96,7 @@ Down below are the results for each feature.
 
 ![](./report_figures/results/output_AP_LC.png) | ![](./report_figures/results/output_AP_UC.png)
 -----------------------------------------------|--------------------------------------------------
-![](./report_figures/results/output_AP_black_center.png)      | ![](./report_figures/results/output_AP_bw_ratio.png)
---------------------------------------------------------------|-------------------------------------
+![](./report_figures/results/output_AP_black_center.png) | ![](./report_figures/results/output_AP_bw_ratio.png)
 ![](./report_figures/results/output_AP_bw_ratio_UC_to_LC.png) | ![](./report_figures/results/output_AP_transitions.png)
 
 possible reasons for the poor performance could be the lack of normalisation of the cut-out images. Only changes made were to make each of rectangular shape of size 120xLength. Another problem is that we are not sure if our DTW is calculating the distances as intended. We tried different parameters for the sakoe-chiba band but yielded similar results. We also run it without a restrictional band at all without improvements.
